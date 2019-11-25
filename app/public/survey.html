@@ -148,7 +148,7 @@
 
     <div id="modal" class="modal">
         <div class="modal-body">
-            <h2>Here you closest frined match!!</h2>
+            <h2>Here you closest friend match!!</h2>
             <br>
             <h3 id="matchedUser"></h3>
             <img id="matchedUserPhoto" src="">
@@ -165,9 +165,9 @@
             });
         });
 
-        $("#submit").on("click", function(event) {
+        $(".submit").on("click", function(event) {
             //prevent the page from refreshing on click
-            event.preventdefault();
+            e.preventDefault();
             //collect the user's answers and store them in an object
             const userAnswers = {
                 name: $("newName").val().trim(),
@@ -185,6 +185,7 @@
                     $("#ques10").val().trim(),
                 ]
             };
+            console.log(userAnswers)
 
             //add new friend to the API list
             $.post("/api/friends", userAnswers).done(function(data) {
